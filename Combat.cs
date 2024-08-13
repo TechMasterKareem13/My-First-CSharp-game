@@ -107,7 +107,6 @@ namespace CSharp_game
                 case "Shield Bash":
                     Console.WriteLine($"{player.Name} bashes the {enemy.Name} with a shield!");
                     enemy.Health -= player.Attack / 2;
-                    // Implement stun logic
                     break;
                 case "Berserk":
                     Console.WriteLine($"{player.Name} goes berserk!");
