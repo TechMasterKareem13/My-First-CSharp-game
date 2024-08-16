@@ -126,7 +126,7 @@ namespace CSharp_game
                 case "Ice Spike":
                     Console.WriteLine($"{player.Name} launches an ice spike at the {enemy.Name}!");
                     enemy.Health -= player.Attack + 5;
-                    // Implement freeze logic
+                    // Will implement freeze logic
                     break;
                 case "Arcane Blast":
                     Console.WriteLine($"{player.Name} unleashes an arcane blast!");
@@ -144,9 +144,10 @@ namespace CSharp_game
                     enemy.Health -= player.Attack * 2;
                     break;
                 case "Poison Dagger":
+                    Random pois = new Random();
+                    int poiso = pois.Next(1, 5);
                     Console.WriteLine($"{player.Name} poisons the {enemy.Name}!");
-                    enemy.Health -= player.Attack;
-                    // Implement poison over time logic
+                    enemy.Health -= player.Attack * poiso;
                     break;
                 case "Shadow Step":
                     Console.WriteLine($"{player.Name} uses Shadow Step!");

@@ -118,7 +118,6 @@ namespace CSharp_game
         static void SaveGame(Character player)
         {
             Console.WriteLine("Saving game...");
-
             Console.WriteLine("Game saved successfully.");
         }
 
