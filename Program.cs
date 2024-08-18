@@ -1,20 +1,19 @@
-﻿using System;
+﻿using CSharp_game;
+using System;
 
 namespace CSharp_game
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Kareem's C sharp Game");
+            Console.WriteLine("Welcome to Realm of Shadows!");
 
             Console.Write("Enter your character's name: ");
             string name = Console.ReadLine();
 
             Console.WriteLine("Choose your class:");
-            Console.WriteLine("1. Warrior");
-            Console.WriteLine("2. Mage");
-            Console.WriteLine("3. Rogue");
+            DisplayClassOptions();
             Console.Write("Enter the number of your class: ");
             string classChoice = Console.ReadLine();
             string charClass = GetClassFromChoice(classChoice);
@@ -52,12 +51,29 @@ namespace CSharp_game
                         break;
                     case "5":
                         gameOver = true;
-                        Console.WriteLine("Thank you for playing my game :D");
+                        Console.WriteLine("Thank you for playing my first C# Game");
                         break;
                     default:
                         Console.WriteLine("Invalid choice, please try again.");
                         break;
                 }
+            }
+        }
+
+        static void DisplayClassOptions()
+        {
+            string[] classes = new string[]
+            {
+                "1. Warrior", "2. Mage", "3. Rogue", "4. Paladin", "5. Necromancer",
+                "6. Ranger", "7. Bard", "8. Monk", "9. Druid", "10. Assassin",
+                "11. Sorcerer", "12. Knight", "13. Alchemist", "14. Beastmaster",
+                "15. Shaman", "16. Templar", "17. Elementalist", "18. Blood Knight",
+                "19. Chronomancer", "20. Shadow Dancer"
+            };
+
+            foreach (string classOption in classes)
+            {
+                Console.WriteLine(classOption);
             }
         }
 
@@ -68,7 +84,24 @@ namespace CSharp_game
                 "1" => "Warrior",
                 "2" => "Mage",
                 "3" => "Rogue",
-                _ => "Warrior", 
+                "4" => "Paladin",
+                "5" => "Necromancer",
+                "6" => "Ranger",
+                "7" => "Bard",
+                "8" => "Monk",
+                "9" => "Druid",
+                "10" => "Assassin",
+                "11" => "Sorcerer",
+                "12" => "Knight",
+                "13" => "Alchemist",
+                "14" => "Beastmaster",
+                "15" => "Shaman",
+                "16" => "Templar",
+                "17" => "Elementalist",
+                "18" => "Blood Knight",
+                "19" => "Chronomancer",
+                "20" => "Shadow Dancer",
+                _ => "Warrior",
             };
         }
 
@@ -120,6 +153,5 @@ namespace CSharp_game
             Console.WriteLine("Saving game...");
             Console.WriteLine("Game saved successfully.");
         }
-
     }
 }

@@ -1,34 +1,46 @@
-﻿namespace CSharp_game
+﻿using CSharp_game;
+using System.Collections.Generic;
+
+public class Enemy
 {
-    internal class Enemy
+    public string Name { get; private set; }
+    public int Health { get; set; }
+    public int Attack { get; set; }
+    public int Defense { get; set; }
+    public int ExperienceValue { get; private set; }
+    public List<string> Abilities { get; private set; }
+
+    public Enemy(string name, int health, int attack, int defense, int experienceValue, List<string> abilities)
     {
-        public string Name { get; private set; }
-        public int Health { get; set; }
-        public int Attack { get; private set; }
-        public int Defense { get; private set; }
-        public int ExperienceValue { get; private set; }
+        Name = name;
+        Health = health;
+        Attack = attack;
+        Defense = defense;
+        ExperienceValue = experienceValue;
+        Abilities = abilities;
+    }
 
-        public Enemy(string name, int health, int attack, int defense, int experienceValue)
-        {
-            Name = name;
-            Health = health;
-            Attack = attack;
-            Defense = defense;
-            ExperienceValue = experienceValue;
-        }
+    internal void UseAbility(Character player)
+    {
+        // Example ability usage
+        string ability = Abilities[new Random().Next(Abilities.Count)];
+        Console.WriteLine($"{Name} uses {ability}!");
 
-        public void AttackPlayer(Character player)
+        switch (ability)
         {
-            int damage = Attack - player.Defense;
-            if (damage > 0)
-            {
-                player.Health -= damage;
-                Console.WriteLine($"{Name} attacks {player.Name} for {damage} damage!");
-            }
-            else
-            {
-                Console.WriteLine($"{Name} attacks {player.Name}, but it's ineffective!");
-            }
+            case "Fire Breath":
+                player.Health -= 15;
+                Console.WriteLine($"{player.Name} takes 15 fire damage!");
+                break;
+            case "Poison Bite":
+                player.Health -= 10;
+                player.StatusEffects.Add("Poisoned");
+                Console.WriteLine($"{player.Name} is poisoned!");
+                break;
+            case "Shadow Strike":
+                player.Health -= 20;
+                Console.WriteLine($"{player.Name} takes 20 shadow damage!");
+                break;
         }
     }
 }
