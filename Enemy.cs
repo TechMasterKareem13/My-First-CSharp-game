@@ -22,7 +22,6 @@ public class Enemy
 
     internal void UseAbility(Character player)
     {
-        // Example ability usage
         string ability = Abilities[new Random().Next(Abilities.Count)];
         Console.WriteLine($"{Name} uses {ability}!");
 
