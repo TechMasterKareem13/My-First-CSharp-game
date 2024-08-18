@@ -7,7 +7,7 @@ namespace CSharp_game
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Realm of Shadows!");
+            Console.WriteLine("Welcome to Kareem's First C# Game");
 
             Console.Write("Enter your character's name: ");
             string name = Console.ReadLine();
